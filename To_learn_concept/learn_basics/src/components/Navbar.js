@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import ThemeContext from "../context/ThemeContext";
 
 export default function Navbar(props) {
-	const handleToggle = () => {};
+	// const handleToggle = () => {};
+
+	const { handleToggle } = useContext(ThemeContext);
 	return (
 		<>
 			<nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -92,4 +95,4 @@ export default function Navbar(props) {
 }
 
 //to check that the props of navbar are of these type only
-Navbar.prototype = { title: PropTypes.string };
+Navbar.propTypes = { title: PropTypes.string };

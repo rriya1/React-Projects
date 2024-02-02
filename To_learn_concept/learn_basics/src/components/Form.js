@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import ComponentThemeContext from "../context/ComponentThemeContext";
 
 function Form(props) {
 	//state variables
 	const [text, setText] = useState("Enter text here");
 	const [convertedText, setConvertedText] = useState("");
+
+	const { mode, buttonColor } = useContext(ComponentThemeContext);
 
 	const handleUpClick = () => {
 		console.log("handle up clicked");
@@ -26,7 +29,7 @@ function Form(props) {
 
 	return (
 		<>
-			<div className="container">
+			<div className="container" style={mode}>
 				<h1>{props.displayText}</h1>
 				<div className="mb-3">
 					<label htmlFor="exampleFormControlTextarea1" className="form-label">
@@ -38,23 +41,45 @@ function Form(props) {
 						rows="5"
 						value={text}
 						onChange={handleOnChange}
+						style={{
+							...mode,
+							backgroundColor: mode.color === "white" ? "#343a46" : "#cfe2ff",
+						}}
 					></textarea>
 				</div>
 
-				<button className="btn btn-primary mx-2" onClick={handleUpClick}>
+				<button
+					className="btn btn-primary mx-2"
+					onClick={handleUpClick}
+					style={buttonColor}
+				>
 					Convert to uppercase
 				</button>
-				<button className="btn btn-primary mx-2" onClick={handleCountClick}>
+				<button
+					className="btn btn-primary mx-2"
+					onClick={handleCountClick}
+					style={buttonColor}
+				>
 					Count length
 				</button>
-				<button className="btn btn-primary mx-2" onClick={handleClearClick}>
+				<button
+					className="btn btn-primary mx-2"
+					onClick={handleClearClick}
+					style={buttonColor}
+				>
 					Clear text
 				</button>
 			</div>
 
-			<div className="container my-3">
+			<div className="container my-3" style={mode}>
 				<h2>Result</h2>
-				<div className="card">
+				<div
+					className="card"
+					style={{
+						...mode,
+						backgroundColor: mode.color === "white" ? "#343a46" : "#cfe2ff",
+					}}
+				>
 					<div className="card-body">{convertedText}</div>
 				</div>
 			</div>

@@ -1,43 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useContext } from "react";
+import ThemeContext from "../context/ThemeContext";
+import ComponentThemeContext from "../context/ComponentThemeContext";
 
 export default function Learn() {
-	//state varibale
-	const [mode, setMode] = useState({
-		color: "black",
-		backgroundColor: "white",
-	});
-	const [buttonColor, setButtonColor] = useState({
-		color: "white",
-		backgroundColor: "#149eca",
-	});
-	const [buttonText, setButtonText] = useState("Enable Dark mode");
-
-	//when we click the enable dark mode
-	const handleToggle = () => {
-		if (mode.color === "black") {
-			setMode({
-				color: "white",
-				backgroundColor: "#23272f",
-			});
-			setButtonText("Enable Light Mode");
-			setButtonColor({
-				color: "white",
-				backgroundColor: "#23272f",
-				borderColor: "white",
-			});
-		} else {
-			setMode({
-				color: "black",
-				backgroundColor: "white",
-			});
-			setButtonText("Enable Dark Mode");
-			setButtonColor({
-				color: "white",
-				backgroundColor: "#149eca",
-			});
-		}
-	};
+	const { handleToggle } = useContext(ThemeContext);
+	const { mode, buttonColor, buttonText } = useContext(ComponentThemeContext);
 
 	return (
 		<>
