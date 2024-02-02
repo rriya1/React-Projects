@@ -3,8 +3,7 @@ import Form from "./components/Form";
 import Learn from "./components/Learn";
 import ThemeContextProvider from "./context/ThemeContextProvider";
 import ComponentThemeProvider from "./context/ComponentThemeProvider";
-// import { BrowserRouter as Router } from "react-router-dom";
-// import { Route, Routes, Router } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 function App() {
 	return (
@@ -12,8 +11,10 @@ function App() {
 			<ComponentThemeProvider>
 				<ThemeContextProvider>
 					<Navbar title="React" />
-					<Form />
-					<Learn />
+					<Routes>
+						<Route path="/components/Learn" element={<Learn />} />
+						<Route path="/components/Form" element={<Form />} />
+					</Routes>
 				</ThemeContextProvider>
 			</ComponentThemeProvider>
 		</>

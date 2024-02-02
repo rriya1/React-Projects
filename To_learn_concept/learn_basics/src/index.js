@@ -27,19 +27,14 @@
 // );
 
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client"; //added client because suggested in console
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import App from "./App";
-import Form from "./components/Form";
-import Learn from "./components/Learn";
+
 const rootElement = document.getElementById("root");
 const router = (
 	<Router>
-		<Routes>
-			<Route path="/" element={<App />} />
-			<Route path="/components/Learn" element={<Learn />} />
-			<Route path="/components/Form" element={<Form />} />
-		</Routes>
+		<App />
 	</Router>
 );
 const root = ReactDOM.createRoot(rootElement);
