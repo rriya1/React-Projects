@@ -29,7 +29,7 @@ function Form(props) {
 			<div className="container">
 				<h1>{props.displayText}</h1>
 				<div className="mb-3">
-					<label for="exampleFormControlTextarea1" className="form-label">
+					<label htmlFor="exampleFormControlTextarea1" className="form-label">
 						Your thoughts about React
 					</label>
 					<textarea
