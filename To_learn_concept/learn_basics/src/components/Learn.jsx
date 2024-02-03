@@ -9,7 +9,14 @@ export default function Learn() {
 
 	return (
 		<>
-			<div style={mode}>
+			<div
+				style={{
+					...mode,
+					left: 0,
+					right: 0,
+					bottom: 0,
+				}}
+			>
 				<div className="container" style={mode}>
 					<h1 className="my-4">Quick Start</h1>
 					<h3 className="my-3">

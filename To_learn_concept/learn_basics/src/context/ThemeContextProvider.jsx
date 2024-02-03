@@ -1,12 +1,25 @@
 import React, { useState, useEffect, useContext } from "react";
 import ThemeContext from "./ThemeContext";
-import { lightbutton, lightmode, darkbutton, darkmode } from "../theme";
+import {
+	lightbutton,
+	lightmode,
+	darkbutton,
+	darkmode,
+	darknavbar,
+	lightnavbar,
+	darkbg,
+	lightbg,
+} from "../theme";
 import ComponentThemeContext from "./ComponentThemeContext";
 
 function ThemeContextProvider({ children }) {
-	const { setMode, setButtonColor, setButtonText } = useContext(
-		ComponentThemeContext
-	);
+	const {
+		setMode,
+		setButtonColor,
+		setButtonText,
+		setNavbarColor,
+		setOverallBg,
+	} = useContext(ComponentThemeContext);
 	const [theme, setTheme] = useState("light");
 
 	const toggleTheme = () => {
@@ -24,11 +37,15 @@ function ThemeContextProvider({ children }) {
 			setMode(darkmode);
 			setButtonText("Enable Light Mode");
 			setButtonColor(darkbutton);
+			setNavbarColor(darknavbar);
+			setOverallBg(darkbg);
 		} else {
 			toggleTheme();
 			setMode(lightmode);
 			setButtonText("Enable Dark Mode");
 			setButtonColor(lightbutton);
+			setNavbarColor(lightnavbar);
+			setOverallBg(lightbg);
 		}
 	};
 
