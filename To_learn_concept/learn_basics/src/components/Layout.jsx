@@ -23,3 +23,9 @@ function Layout() {
 }
 
 export default Layout;
+
+
+//first import router--> define the routes->link it to some Component
+
+//in the browser
+//we click on component--> it checks path--> goes to routes to compare path--> checks element associated with that path--> rednders that element

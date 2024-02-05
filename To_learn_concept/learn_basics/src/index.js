@@ -38,4 +38,4 @@ const router = (
 	</Router>
 );
 const root = ReactDOM.createRoot(rootElement);
-root.render(<React.StrictMode>{router}</React.StrictMode>);
+root.render(<React.StrictMode>{router}</React.StrictMode>); //renders whats inside the tag in the browser
