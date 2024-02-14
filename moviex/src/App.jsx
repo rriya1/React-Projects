@@ -1,8 +1,24 @@
 import { useState, useEffect } from "react";
-import { ReactReduxContext } from "react-redux";
 import { fetchDataFromApi } from "./utils/api";
-import { useSelector, useDispatch } from "react-redux";
+
+//router
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+//redux
+import { ReactReduxContext } from "react-redux";
+import { useSelector, useDispatch } from "react-redux"; //for using the states via redux
+
+//slices which will be used by redux
 import { getApiConfiguration } from "./store/homeSlice";
+
+//all the components
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import PageNotFound from "./pages/404/PageNotFound";
+import Details from "./pages/details/Details";
+import Explore from "./pages/explore/Explore";
+import Home from "./pages/home/Home";
+import SearchResults from "./pages/searchResults/SearchResults";
 
 function App() {
 	useEffect(() => {
@@ -19,10 +35,17 @@ function App() {
 		});
 	};
 	return (
-		<>
-			<h1> my project start</h1>
-			<p>{url?.total_pages}</p>
-		</>
+		<BrowserRouter>
+			<Header />
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/:mediaType/:id" element={<Details />} />
+				<Route path="/search/:query" element={<SearchResults />} />
+				<Route path="/explore/:mediaType" element={<Explore />} />
+				<Route path="*" element={<PageNotFound />} />
+			</Routes>
+			<Footer />
+		</BrowserRouter>
 	);
 }
 
