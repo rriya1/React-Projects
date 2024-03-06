@@ -22,16 +22,23 @@ import SearchResults from "./pages/searchResults/SearchResults";
 
 function App() {
 	useEffect(() => {
-		apiTesting();
+		fetchApiConfig();
 	}, []);
 
 	const dispatch = useDispatch(); //make an instance of the dispatcher
 	const { url } = useSelector((state) => state.home); //calling useselector hook to get the value after destructuring
 
-	const apiTesting = () => {
-		fetchDataFromApi("/movie/popular").then((res) => {
+	const fetchApiConfig = () => {
+		fetchDataFromApi("/configuration").then((res) => {
 			console.log(res);
-			dispatch(getApiConfiguration(res)); //usinng the dispatcher to call the action
+
+			const url = {
+				//instead of saving all the data in the store state, we want only this data to be saved.
+				backdrop: res.images.secure_base_url + "original",
+				poster: res.images.secure_base_url + "original",
+				profile: res.images.secure_base_url + "original",
+			};
+			dispatch(getApiConfiguration(url)); //usinng the dispatcher to call the action
 		});
 	};
 	return (

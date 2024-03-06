@@ -1,0 +1,27 @@
+.card {
+  background-color: #85a7c9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 8px;
+  height: 360px
+}
+
+.heading{
+  height: 70px;
+}
+
+.row-extra{
+  height: 240px;
+}
+
+.small-card{
+  height: 180px;
+  width: 150px;
+  display: 'flex';
+  flex-direction: 'column';
+  align-items: 'center';
+  border: '1px solid #ccc';
+  padding: '20px';
+  border-radius: '10px' 
+}

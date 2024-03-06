@@ -1,0 +1,10 @@
+.heroBanner {
+	width: 100%;
+	height: 450px;
+	background-color: var(
+		--black
+	); //comes from index.css, ther we had made a varibale to store the black color.
+	display: flex;
+	align-items: center;
+	position: relative;
+}
